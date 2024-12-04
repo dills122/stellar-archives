@@ -27,9 +27,7 @@
             "outputPath": "dist/stellar-archives",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -39,7 +37,11 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "@angular/material/prebuilt-themes/cyan-orange.css",
+              "bootstrap/scss/bootstrap-grid.scss",
+              "bootstrap/scss/bootstrap-utilities.scss",
+              "src/styles/styles.scss",
+              "src/styles/starwarsintro.css"
             ],
             "scripts": []
           },
@@ -85,10 +87,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -98,7 +97,11 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "@angular/material/prebuilt-themes/cyan-orange.css",
+              "bootstrap/scss/bootstrap-grid.scss",
+              "bootstrap/scss/bootstrap-utilities.scss",
+              "src/styles/styles.scss",
+              "src/styles/starwarsintro.css"
             ],
             "scripts": []
           }
