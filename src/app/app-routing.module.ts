@@ -12,6 +12,15 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/home/home.module').then((m) => m.HomeModule),
   },
+  {
+    path: 'explore',
+    loadChildren: () =>
+      import('./modules/explore/explore.module').then((m) => m.ExploreModule),
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
+  },
 ];
 
 @NgModule({

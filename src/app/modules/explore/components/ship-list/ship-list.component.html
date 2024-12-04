@@ -1,0 +1,52 @@
+<ng-container>
+  <div class="overlay" *ngIf="isLoadingResults">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div [class.disabled]="isLoadingResults">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Name
+        </mat-header-cell>
+        <mat-cell *matCellDef="let starship"> {{ starship.name }} </mat-cell>
+      </ng-container>
+
+      <!-- Model Column -->
+      <ng-container matColumnDef="model">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Model
+        </mat-header-cell>
+        <mat-cell *matCellDef="let starship"> {{ starship.model }} </mat-cell>
+      </ng-container>
+
+      <!-- Manufacturer Column -->
+      <ng-container matColumnDef="manufacturer">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Manufacturer
+        </mat-header-cell>
+        <mat-cell *matCellDef="let starship">
+          {{ starship.manufacturer }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Crew Column -->
+      <ng-container matColumnDef="crew">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Crew
+        </mat-header-cell>
+        <mat-cell *matCellDef="let starship"> {{ starship.crew }} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+
+    <mat-paginator
+      [length]="totalShips"
+      [pageSize]="10"
+      (page)="onPageChange($event)"
+    >
+    </mat-paginator>
+  </div>
+</ng-container>
