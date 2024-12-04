@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { BaseService } from '../base/base.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { withCache } from '@ngneat/cashew';
 import { Starship, Starships } from '../../models/starship.model';
-import { Cacheable } from 'ts-cacheable';
+import { BaseService } from '../base/base.service';
 
 @Injectable()
 export class StarshipService extends BaseService {
@@ -12,16 +12,18 @@ export class StarshipService extends BaseService {
     this.resourceBaseUrl = this.constructResourceEndpoint('starships');
   }
 
-  @Cacheable()
   getStarshipsByPage(page = 1) {
     const url = `${this.resourceBaseUrl}?${new HttpParams()
       .set('page', page)
       .toString()}`;
-    return this.httpClient.get<Starships>(url);
+    return this.httpClient.get<Starships>(url, {
+      context: withCache(),
+    });
   }
 
-  @Cacheable()
   getStarship(id: number) {
-    return this.httpClient.get<Starship>(`${this.resourceBaseUrl}/${id}`);
+    return this.httpClient.get<Starship>(`${this.resourceBaseUrl}/${id}`, {
+      context: withCache(),
+    });
   }
 }

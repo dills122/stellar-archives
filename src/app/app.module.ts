@@ -1,18 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
 
+import { MatIconModule } from '@angular/material/icon';
 import { HomeModule } from './modules/home/home.module';
 import { SwapiModule } from './modules/swapi/swapi.module';
-import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +26,6 @@ import { MatIconModule } from '@angular/material/icon';
 
     //Ang Material Imports
     MatToolbarModule,
-    MatCardModule,
     MatGridListModule,
     MatButtonModule,
     MatIconModule,
