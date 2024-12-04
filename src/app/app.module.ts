@@ -12,6 +12,7 @@ import { AppComponent } from './app/app.component';
 
 import { HomeModule } from './modules/home/home.module';
 import { SwapiModule } from './modules/swapi/swapi.module';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,8 +30,9 @@ import { SwapiModule } from './modules/swapi/swapi.module';
     MatCardModule,
     MatGridListModule,
     MatButtonModule,
+    MatIconModule,
   ],
-  providers: [provideAnimationsAsync()],
+  providers: [provideAnimationsAsync(), provideAnimationsAsync('noop')],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

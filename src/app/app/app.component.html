@@ -1,10 +1,14 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="accent">
   <span>{{ title }}</span>
+  <span class="spacer"></span>
+  <button mat-button>Home</button>
+  <button mat-button>Explore</button>
+  <button mat-button>About</button>
 </mat-toolbar>
 
-<div class="container-fluid text-center">
-  <div class="row">
-    <div class="col">
+<div class="row center-xs gutterless-container">
+  <div class="col-xs-12">
+    <div class="box">
       <router-outlet />
     </div>
   </div>

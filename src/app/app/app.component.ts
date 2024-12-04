@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StarshipService } from '../modules/swapi/services/starship/starship.service';
 import { tap } from 'rxjs';
+import config from '../shared/global-config';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { tap } from 'rxjs';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  title = 'Stellar Archives';
+  title = config.app.title;
   constructor(private starshipService: StarshipService) {}
   ngOnInit(): void {
     // this.starshipService
