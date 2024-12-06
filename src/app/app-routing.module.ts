@@ -18,6 +18,16 @@ const routes: Routes = [
       import('./modules/explore/explore.module').then((m) => m.ExploreModule),
   },
   {
+    path: 'details',
+    loadChildren: () =>
+      import('./modules/details/details.module').then((m) => m.DetailsModule),
+  },
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('./modules/about/about.module').then((m) => m.AboutModule),
+  },
+  {
     path: '**',
     redirectTo: 'home',
   },

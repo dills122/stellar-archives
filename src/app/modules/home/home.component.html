@@ -16,17 +16,20 @@
           <mat-card-title>Fan Favorites</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <mat-grid-list cols="2" rowHeight="2:1">
-            <mat-grid-tile class="grid-tile">
-              <div class="tile-content">Millennium Falcon</div>
-            </mat-grid-tile>
-            <mat-grid-tile class="grid-tile">X-Wing</mat-grid-tile>
-            <mat-grid-tile class="grid-tile">Slave I</mat-grid-tile>
-            <mat-grid-tile class="grid-tile">Star Destroyer</mat-grid-tile>
-          </mat-grid-list>
+          <div class="padding">
+            <mat-grid-list cols="2" rowHeight="2:1">
+              <mat-grid-tile
+                class="grid-tile"
+                *ngFor="let ship of fanFavoriteShips"
+                [routerLink]="['/details', ship.resourceId]"
+              >
+                <div class="tile-content">{{ ship.name }}</div>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
         </mat-card-content>
         <mat-card-actions align="end">
-          <button mat-button>See Full List</button>
+          <button mat-button routerLink="/explore">See Full List</button>
         </mat-card-actions>
       </mat-card>
     </div>

@@ -1,0 +1,16 @@
+.ship-details {
+  text-align: left;
+  padding: 1.5em 1em;
+
+  & .box > div {
+    padding: 0.5em 0;
+  }
+}
+
+.manufacturer-container {
+  text-align: left;
+  padding: 1.5em 1em;
+  & > h4 {
+    margin: 0.75em 0;
+  }
+}

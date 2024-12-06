@@ -1,0 +1,71 @@
+<ng-container>
+  <app-spinner-overlay
+    [isLoadingResults]="!(starship$ | async)"
+  ></app-spinner-overlay>
+  <div class="row center-xs">
+    <div class="col-xs-10">
+      <div class="box" *ngIf="starship$ | async as starship">
+        <h2>{{ starship.name }}</h2>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title> Model: {{ starship.model }} </mat-card-title>
+            <mat-card-subtitle>
+              Class: {{ starship.starship_class }}
+            </mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <div class="row ship-details">
+              <div class="col-xs-12">
+                <div class="box">
+                  <div class="manufacturer-container">
+                    <h4>Manufacturer(s):</h4>
+                    <mat-chip-set aria-label="manufacturers list">
+                      <mat-chip
+                        *ngFor="
+                          let manufacturer of handleManufacturers(
+                            starship.manufacturer
+                          )
+                        "
+                        >{{ manufacturer }}</mat-chip
+                      >
+                    </mat-chip-set>
+                  </div>
+                  <div>
+                    <strong>Cost:</strong>
+                    {{ handleCostInCredits(starship.cost_in_credits) }}
+                    credits
+                  </div>
+                  <div>
+                    <strong>Length:</strong>
+                    {{ starship.length }} meters
+                  </div>
+                  <div>
+                    <strong>Hyperdrive Rating:</strong>
+                    {{ starship.hyperdrive_rating }}
+                  </div>
+                  <div><strong>Crew:</strong> {{ starship.crew }}</div>
+                  <div>
+                    <strong>Max Speed:</strong>
+                    {{ starship.max_atmosphering_speed }} km/h
+                  </div>
+                  <div>
+                    <strong>Cargo Capacity:</strong>
+                    {{ starship.cargo_capacity | number : "1.0" : "en-US" }} kg
+                  </div>
+                  <div>
+                    <strong>Consumables:</strong>
+                    {{ starship.consumables }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions align="end">
+            <button mat-button routerLink="/explore">Back to list</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</ng-container>

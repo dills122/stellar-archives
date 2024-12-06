@@ -20,9 +20,14 @@ html {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: var(--mat-sys-on-surface, rgba(0, 0, 0, 0.87));
 }
 
 .gutterless-container {
   margin-left: 0;
   margin-right: 0;
+}
+
+.padding {
+  padding: 0.5em;
 }

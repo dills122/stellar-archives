@@ -30,7 +30,7 @@ import { SwapiModule } from './modules/swapi/swapi.module';
     MatButtonModule,
     MatIconModule,
   ],
-  providers: [provideAnimationsAsync(), provideAnimationsAsync('noop')],
+  providers: [provideAnimationsAsync(), provideAnimationsAsync('animations')],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
