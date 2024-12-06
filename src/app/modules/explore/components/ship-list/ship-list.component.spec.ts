@@ -7,6 +7,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { StarshipService } from '../../../swapi/services/starship/starship.service';
 import { Starships } from '../../../swapi/models/starship.model';
 import { of } from 'rxjs';
+import { SpinnerOverlayComponent } from '../../../../shared/components/spinner-overlay/spinner-overlay.component';
 
 describe('ShipListComponent', () => {
   let component: ShipListComponent;
@@ -20,7 +21,7 @@ describe('ShipListComponent', () => {
     starshipServiceMock.getStarshipsByPage.and.returnValue(of({} as Starships));
     await TestBed.configureTestingModule({
       imports: [MatTableModule, MatPaginatorModule, MatProgressSpinnerModule],
-      declarations: [ShipListComponent],
+      declarations: [ShipListComponent, SpinnerOverlayComponent],
       providers: [
         {
           provide: StarshipService,

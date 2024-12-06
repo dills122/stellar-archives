@@ -41,6 +41,8 @@ export class DetailsComponent implements OnInit {
   }
 
   handleManufacturers(manufacturers: string) {
+    if (!manufacturers) return [];
+
     if (!manufacturers.includes(',')) {
       return [manufacturers];
     }
