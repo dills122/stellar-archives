@@ -83,6 +83,11 @@ export class ShipListComponent implements OnInit, OnDestroy {
     }
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   onPageChange(event: PageEvent): void {
     const requestedPage = event.pageIndex + 1;
     this.fetchPage(requestedPage);

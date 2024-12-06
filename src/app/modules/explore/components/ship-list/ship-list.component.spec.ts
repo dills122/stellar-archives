@@ -8,6 +8,9 @@ import { StarshipService } from '../../../swapi/services/starship/starship.servi
 import { Starships } from '../../../swapi/models/starship.model';
 import { of } from 'rxjs';
 import { SpinnerOverlayComponent } from '../../../../shared/components/spinner-overlay/spinner-overlay.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ShipListComponent', () => {
   let component: ShipListComponent;
@@ -20,7 +23,14 @@ describe('ShipListComponent', () => {
     ]);
     starshipServiceMock.getStarshipsByPage.and.returnValue(of({} as Starships));
     await TestBed.configureTestingModule({
-      imports: [MatTableModule, MatPaginatorModule, MatProgressSpinnerModule],
+      imports: [
+        MatTableModule,
+        MatPaginatorModule,
+        MatProgressSpinnerModule,
+        MatFormFieldModule,
+        MatInputModule,
+        NoopAnimationsModule,
+      ],
       declarations: [ShipListComponent, SpinnerOverlayComponent],
       providers: [
         {

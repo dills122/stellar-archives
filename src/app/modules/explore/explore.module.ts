@@ -9,6 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { IntroComponent } from './components/intro/intro.component';
 import { SharedModule } from '../../shared/shared.module';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [ExploreComponent, ShipListComponent, IntroComponent],
@@ -20,6 +22,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatIconModule,
     MatButtonModule,
     MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
 })
 export class ExploreModule {}

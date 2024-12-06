@@ -10,6 +10,9 @@ import { IntroComponent } from './components/intro/intro.component';
 import { ShipListComponent } from './components/ship-list/ship-list.component';
 import { ExploreComponent } from './explore.component';
 import { SpinnerOverlayComponent } from '../../shared/components/spinner-overlay/spinner-overlay.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ExploreComponent', () => {
   let component: ExploreComponent;
@@ -22,7 +25,14 @@ describe('ExploreComponent', () => {
     ]);
     starshipServiceMock.getStarshipsByPage.and.returnValue(of({} as Starships));
     await TestBed.configureTestingModule({
-      imports: [MatTableModule, MatPaginatorModule, MatProgressSpinnerModule],
+      imports: [
+        MatTableModule,
+        MatPaginatorModule,
+        MatProgressSpinnerModule,
+        MatFormFieldModule,
+        MatInputModule,
+        NoopAnimationsModule,
+      ],
       declarations: [
         ExploreComponent,
         ShipListComponent,

@@ -3,6 +3,16 @@
     [isLoadingResults]="isLoadingResults"
   ></app-spinner-overlay>
   <div [class.disabled]="isLoadingResults">
+    <div class="search-container">
+      <mat-form-field>
+        <mat-label>Filter by Manufacturer</mat-label>
+        <input
+          matInput
+          (keyup)="applyFilter($event)"
+          placeholder="Search Manufacturer"
+        />
+      </mat-form-field>
+    </div>
     <table
       mat-table
       [dataSource]="dataSource"
@@ -11,7 +21,7 @@
     >
       @for (column of columnsToDisplay; track column) {
       <ng-container matColumnDef="{{ column }}">
-        <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+        <th mat-header-cell *matHeaderCellDef>{{ column | titlecase }}</th>
         <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
       </ng-container>
       }
