@@ -19,7 +19,7 @@ Screenshots:
 
 ![Home Page](./public/home-page.png)
 
-![Explore Page](./public/explore-page.png)
+![Explore Page](./public/explore-page-with-filter.png)
 
 Tech Stack:
 
